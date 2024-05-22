@@ -1,6 +1,7 @@
 package com.example.flappybird;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -14,6 +15,8 @@ import androidx.annotation.NonNull;
 import java.util.Random;
 
 public class GameView extends View {
+
+    private Context c;
 
     private int viewWidth;
     private int viewHeight = 601;
@@ -37,6 +40,7 @@ public class GameView extends View {
 
     public GameView(Context context) {
         super(context);
+        this.c = c;
     }
 
     @Override
@@ -107,6 +111,7 @@ public class GameView extends View {
         //Проверка на столкновение
         if(new Rect(0, (int)playerY, 80*2+100, (int)playerY + 120*2+100).intersect(new Rect((int)enemyX, enemyY, (int)enemyX + 170*2+100, enemyY+200*2+100))){
             point = 0;
+             ((MainActivity) c).startActivity(new Intent(c, MenuActivity.class));
         }
 
 

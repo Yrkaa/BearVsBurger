@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FlappyBird" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
+        <item name="colorPrimary">#0600AE</item>
     </style>
 
     <style name="Theme.FlappyBird" parent="Base.Theme.FlappyBird" />
