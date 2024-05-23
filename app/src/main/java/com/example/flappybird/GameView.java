@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.media.MediaPlayer;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import java.util.Random;
 public class GameView extends View {
 
     private Context c;
+    private MediaPlayer mediaPlayer;
 
     private int viewWidth;
     private int viewHeight = 601;
@@ -38,9 +40,10 @@ public class GameView extends View {
     private int enemyY = enemyRandom.nextInt(viewHeight - 600);
     private float enemySpeed = 3;
 
-    public GameView(Context context) {
+    public GameView(Context context, MediaPlayer mediaPlayer) {
         super(context);
-        this.c = c;
+        this.c = context;
+        this.mediaPlayer = mediaPlayer;
     }
 
     @Override
@@ -110,8 +113,10 @@ public class GameView extends View {
 
         //Проверка на столкновение
         if(new Rect(0, (int)playerY, 80*2+100, (int)playerY + 120*2+100).intersect(new Rect((int)enemyX, enemyY, (int)enemyX + 170*2+100, enemyY+200*2+100))){
-            point = 0;
-             ((MainActivity) c).startActivity(new Intent(c, MenuActivity.class));
+            Intent toMenu = new Intent(c, MenuActivity.class);
+            ((MainActivity) c).startActivity(toMenu);
+             mediaPlayer.stop();
+             this.setWillNotDraw(true);
         }
 
 

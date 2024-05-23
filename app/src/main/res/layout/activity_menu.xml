@@ -7,18 +7,25 @@
     android:id="@+id/menu_layout"
     tools:context=".MenuActivity">
 
+    <com.yandex.mobile.ads.banner.BannerAdView
+        android:id="@+id/menu_banner"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:text="Медведь vs Бургер"
         android:textAlignment="center"
         android:textColor="#FFF"
         android:textSize="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/menu_banner"/>
 
     <Button
         android:id="@+id/play_btn"

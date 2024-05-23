@@ -12,10 +12,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new GameView(this));
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
+        setContentView(new GameView(this, mediaPlayer));
         mediaPlayer.start();
         mediaPlayer.setLooping(true);
 
     }
+
+
 }
